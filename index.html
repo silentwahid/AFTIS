@@ -1057,35 +1057,59 @@
             <p>Discover the perfect vehicle for your journey at unbeatable prices</p>
             <a href="#cars" class="btn">Browse Cars</a>
             
-            <div class="search-box">
-                <h3>Find Your Perfect Car</h3>
-                <form class="search-form">
-                    <div class="form-group">
-                        <label for="pickup-location">Pickup Location</label>
-                        <input type="text" id="pickup-location" placeholder="Enter city or airport">
-                    </div>
-                    <div class="form-group">
-                        <label for="pickup-date">Pickup Date</label>
-                        <input type="date" id="pickup-date">
-                    </div>
-                    <div class="form-group">
-                        <label for="return-date">Return Date</label>
-                        <input type="date" id="return-date">
-                    </div>
-                    <div class="form-group">
-                        <label for="car-type">Car Type</label>
-                        <select id="car-type">
-                            <option value="">Any Type</option>
-                            <option value="economy">Economy</option>
-                            <option value="compact">Compact</option>
-                            <option value="midsize">Midsize</option>
-                            <option value="suv">SUV</option>
-                            <option value="luxury">Luxury</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn">Search Cars</button>
-                </form>
-            </div>
+        <div class="search-box">
+    <h3>Find Your Perfect Car</h3>
+    <form class="search-form" action="https://formsubmit.co/amiramirche2006@gmail.com" method="POST">
+        <!-- Add a hidden input for the subject -->
+        <input type="hidden" name="_subject" value="New Car Rental Inquiry">
+        
+        <!-- Add a hidden input for the _next page (optional) -->
+        <input type="hidden" name="_next" value="https://aftis.netlify.app/thank-you.html">
+        
+        <!-- Add honeypot field to prevent spam -->
+        <input type="text" name="_honey" style="display:none">
+        
+        <!-- Add disable captcha -->
+        <input type="hidden" name="_captcha" value="false">
+        
+        <div class="form-group">
+            <label for="pickup-location">Pickup Location</label>
+            <input type="text" id="pickup-location" name="pickup_location" placeholder="Enter city or airport" required>
+        </div>
+        <div class="form-group">
+            <label for="pickup-date">Pickup Date</label>
+            <input type="date" id="pickup-date" name="pickup_date" required>
+        </div>
+        <div class="form-group">
+            <label for="return-date">Return Date</label>
+            <input type="date" id="return-date" name="return_date" required>
+        </div>
+        <div class="form-group">
+            <label for="car-type">Car Type</label>
+            <select id="car-type" name="car_type" required>
+                <option value="">Any Type</option>
+                <option value="economy">Economy</option>
+                <option value="compact">Compact</option>
+                <option value="midsize">Midsize</option>
+                <option value="suv">SUV</option>
+                <option value="luxury">Luxury</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="customer-name">Your Name</label>
+            <input type="text" id="customer-name" name="customer_name" required>
+        </div>
+        <div class="form-group">
+            <label for="customer-email">Your Email</label>
+            <input type="email" id="customer-email" name="customer_email" required>
+        </div>
+        <div class="form-group">
+            <label for="customer-phone">Phone Number</label>
+            <input type="tel" id="customer-phone" name="customer_phone" required>
+        </div>
+        <button type="submit" class="btn">Book Now</button>
+    </form>
+</div>
         </div>
     </section>
 
@@ -1664,5 +1688,8 @@
             el.style.animationDelay = `${index * 0.3}s`;
         });
     </script>
+
+
+
 </body>
 </html>

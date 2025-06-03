@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - AFTIS Car Rental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* AFTIS Brand Colors */
+        :root {
+            --primary: #1a2a3a;       /* Dark blue-gray */
+            --secondary: #e63946;     /* Vibrant red */
+            --light: #f1faee;        /* Light greenish-white */
+            --dark: #1d3557;         /* Dark blue */
+            --highlight: #a8dadc;    /* Light teal */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+            border: 1px solid var(--highlight);
+        }
+
+        h1 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .icon-success {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            animation: bounce 1s ease infinite;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="icon-success">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Thank You for Your Booking!</h1>
+        <p>We’ve received your request for <strong id="car-type-display"></strong>.</p>
+        <p>Our team will contact you shortly to confirm your reservation.</p>
+        <p>Need immediate assistance? Call us at <strong>+1 (800) 123-4567</strong>.</p>
+        <a href="index.html" class="btn">Back to Home</a>
+    </div>
+
+    <script>
+        // Display selected car type if available in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const carType = urlParams.get('car_type');
+        
+        if (carType) {
+            document.getElementById('car-type-display').textContent = carType;
+        } else {
+            document.getElementById('car-type-display').textContent = "your selected car";
+        }
+    </script>
+</body>
+</html>
