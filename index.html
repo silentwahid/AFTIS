@@ -6,13 +6,14 @@
     <title>AFTIS - Premium Car Rentals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        /* Base Styles - Updated Color Scheme */
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
+            --primary: #1a2a3a;       /* Dark blue-gray - for headers and important elements */
+            --secondary: #e63946;     /* Vibrant red - for accents and buttons */
+            --light: #f1faee;        /* Very light greenish-white - for backgrounds */
+            --dark: #1d3557;         /* Dark blue - for text and dark elements */
+            --gray: #457b9d;         /* Medium blue - for secondary text and borders */
+            --highlight: #a8dadc;    /* Light teal - for highlights and accents */
         }
         
         * {
@@ -23,8 +24,8 @@
         }
         
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
         
@@ -42,7 +43,7 @@
         h2 {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: var(--primary);
+            color: var(--dark);
             text-align: center;
             position: relative;
         }
@@ -70,9 +71,9 @@
         }
         
         .btn:hover {
-            background: #c0392b;
+            background: #c1121f;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
         }
         
         /* Header */
@@ -90,7 +91,7 @@
         
         header.scrolled {
             padding: 10px 0;
-            background-color: rgba(44, 62, 80, 0.95);
+            background-color: rgba(26, 42, 58, 0.95);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         
@@ -111,13 +112,13 @@
         }
         
         .logo-img {
-            width:  15%;
+            width: 15%;
             margin-right: 10px;
             transition: all 0.3s ease;
         }
         
         header.scrolled .logo-img {
-            height: 30px;
+            width: 15%;
         }
         
         .logo span {
@@ -194,7 +195,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 42, 58, 0.7), rgba(26, 42, 58, 0.7)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -212,7 +213,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(26, 42, 58, 0.3);
             z-index: 1;
         }
         
@@ -254,7 +255,7 @@
         }
         
         .search-box h3 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 15px;
         }
         
@@ -272,7 +273,7 @@
         .form-group label {
             text-align: left;
             margin-bottom: 5px;
-            color: var(--primary);
+            color: var(--dark);
             font-weight: 600;
         }
         
@@ -285,7 +286,7 @@
         
         .form-group input:focus, .form-group select:focus {
             border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
             outline: none;
         }
         
@@ -305,10 +306,11 @@
         .filter-btn {
             padding: 8px 15px;
             background: var(--light);
-            border: none;
+            border: 1px solid var(--gray);
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            color: var(--dark);
         }
         
         .filter-btn:hover {
@@ -319,8 +321,9 @@
         .filter-btn.active {
             background: var(--secondary);
             color: white;
+            border-color: var(--secondary);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
         }
         
         .cars-grid {
@@ -333,10 +336,11 @@
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(69, 123, 157, 0.1);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .car-card.animate {
@@ -346,7 +350,8 @@
         
         .car-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(69, 123, 157, 0.2);
+            border-color: var(--highlight);
         }
         
         .car-img {
@@ -367,7 +372,7 @@
         .car-info h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--primary);
+            color: var(--dark);
         }
         
         .car-specs {
@@ -420,10 +425,11 @@
             padding: 30px 20px;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(69, 123, 157, 0.05);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .step.animate {
@@ -433,7 +439,8 @@
         
         .step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(69, 123, 157, 0.1);
+            border-color: var(--highlight);
         }
         
         .step-icon {
@@ -450,7 +457,7 @@
         .step h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--dark);
         }
         
         /* Why Choose Us */
@@ -463,13 +470,24 @@
         .feature {
             text-align: center;
             padding: 30px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(69, 123, 157, 0.05);
+            transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .feature.animate {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(69, 123, 157, 0.1);
+            border-color: var(--highlight);
         }
         
         .feature-icon {
@@ -486,7 +504,7 @@
         .feature h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--dark);
         }
         
         /* Testimonials */
@@ -504,10 +522,11 @@
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(69, 123, 157, 0.05);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .testimonial.animate {
@@ -517,13 +536,15 @@
         
         .testimonial:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(69, 123, 157, 0.1);
+            border-color: var(--highlight);
         }
         
         .testimonial-content {
             margin-bottom: 20px;
             font-style: italic;
             position: relative;
+            color: var(--dark);
         }
         
         .testimonial-content::before {
@@ -552,7 +573,7 @@
         }
         
         .author-info h4 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 5px;
         }
         
@@ -572,12 +593,14 @@
             margin-bottom: 15px;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(69, 123, 157, 0.1);
             transition: all 0.3s ease;
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .faq-item:hover {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 20px rgba(69, 123, 157, 0.15);
+            border-color: var(--highlight);
         }
         
         .faq-question {
@@ -587,16 +610,17 @@
             align-items: center;
             cursor: pointer;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--dark);
             transition: all 0.3s ease;
         }
         
         .faq-question:hover {
-            background: rgba(231, 76, 60, 0.1);
+            background: rgba(230, 57, 70, 0.1);
         }
         
         .faq-question i {
             transition: all 0.3s ease;
+            color: var(--secondary);
         }
         
         .faq-question.active i {
@@ -608,6 +632,7 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s ease;
+            color: var(--gray);
         }
         
         .faq-answer.active {
@@ -641,6 +666,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .contact-card.animate {
@@ -650,7 +676,8 @@
         
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(69, 123, 157, 0.1);
+            border-color: var(--highlight);
         }
         
         .contact-icon {
@@ -666,7 +693,7 @@
         }
         
         .contact-text h3 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 5px;
         }
         
@@ -674,10 +701,11 @@
             background: var(--light);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(69, 123, 157, 0.05);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .contact-form.animate {
@@ -686,11 +714,12 @@
         }
         
         .contact-form:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(69, 123, 157, 0.1);
+            border-color: var(--highlight);
         }
         
         .contact-form h3 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
@@ -706,7 +735,7 @@
         
         .form-group textarea:focus {
             border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
             outline: none;
         }
         
@@ -715,10 +744,11 @@
             width: 100%;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(69, 123, 157, 0.1);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
         
         .map.animate {
@@ -727,7 +757,8 @@
         }
         
         .map:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(69, 123, 157, 0.2);
+            border-color: var(--highlight);
         }
         
         .map iframe {
@@ -763,6 +794,7 @@
         
         .footer-about p {
             margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .social-links {
@@ -793,6 +825,7 @@
             font-size: 1.3rem;
             margin-bottom: 20px;
             position: relative;
+            color: white;
         }
         
         .footer-links h3::after {
@@ -815,7 +848,7 @@
         }
         
         .footer-links a {
-            color: #ddd;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: all 0.3s ease;
         }
@@ -827,6 +860,7 @@
         
         .footer-newsletter p {
             margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .newsletter-form {
@@ -843,7 +877,7 @@
         
         .newsletter-form input:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
         }
         
         .newsletter-form button {
@@ -857,7 +891,7 @@
         }
         
         .newsletter-form button:hover {
-            background: #c0392b;
+            background: #c1121f;
         }
         
         .copyright {
@@ -865,7 +899,7 @@
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            color: #ddd;
+            color: rgba(255, 255, 255, 0.7);
         }
         
         /* Animations */
