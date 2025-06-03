@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Cars - AFTIS Premium Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* AFTIS Brand Colors */
+        :root {
+            --primary: #1a2a3a;       /* Dark blue-gray */
+            --secondary: #e63946;     /* Vibrant red */
+            --light: #f1faee;        /* Light greenish-white */
+            --dark: #1d3557;         /* Dark blue */
+            --highlight: #a8dadc;    /* Light teal */
+            --gray: #457b9d;         /* Medium blue */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        section {
+            padding: 100px 0 50px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(168, 218, 220, 0.3);
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .car-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .car-img {
+            transform: scale(1.05);
+        }
+
+        .car-info {
+            padding: 20px;
+        }
+
+        .car-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .car-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .car-specs span {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .car-specs i {
+            margin-right: 5px;
+            color: var(--secondary);
+        }
+
+        .car-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .car-price h4 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .car-price h4 span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 8px 15px;
+            background: var(--light);
+            border: 1px solid var(--gray);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--dark);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .cars-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="AFTIS Logo" class="logo-img">
+                <span>AFTIS</span> Car Rental
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="available-cars.html">Available Cars</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Available Cars Section -->
+    <section class="available-cars">
+        <div class="container">
+            <h2>Our Premium Fleet</h2>
+            
+            <div class="filter-options">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Luxury</button>
+                <button class="filter-btn">SUV</button>
+                <button class="filter-btn">Sports</button>
+                <button class="filter-btn">Electric</button>
+            </div>
+            
+            <div class="cars-grid">
+                <!-- Car 1 -->
+                <div class="car-card">
+                    <img src="G900.jpg" alt="Mercedes-AMG G63 BRABUS 900 ROCKET" class="car-img">
+                    <div class="car-info">
+                        <h3>Mercedes-AMG G63 BRABUS 900 ROCKET</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Black</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$1,200 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 2 -->
+                <div class="car-card">
+                    <img src="EVO.jpg" alt="Lamborghini Huracan EVO" class="car-img">
+                    <div class="car-info">
+                        <h3>Lamborghini Huracan EVO</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Sports</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Purple</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$1,500 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 3 -->
+                <div class="car-card">
+                    <img src="HURACAN.jpg" alt="Lamborghini Huracan" class="car-img">
+                    <div class="car-info">
+                        <h3>Lamborghini Huracan</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Sports</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Orange</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$1,450 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 4 -->
+                <div class="car-card">
+                    <img src="G800.jpg" alt="Mercedes-AMG G63 Brabus 800" class="car-img">
+                    <div class="car-info">
+                        <h3>Mercedes-AMG G63 Brabus 800</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Black</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$1,100 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 5 -->
+                <div class="car-card">
+                    <img src="RSQ8.jpg" alt="Audi RSQ8 Mansory" class="car-img">
+                    <div class="car-info">
+                        <h3>Audi RSQ8 Mansory</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> White</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$950 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 6 -->
+                <div class="car-card">
+                    <img src="GLE53.jpg" alt="Mercedes-AMG GLE-53 BRABUS" class="car-img">
+                    <div class="car-info">
+                        <h3>Mercedes-AMG GLE-53 BRABUS</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> White</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$850 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 7 -->
+                <div class="car-card">
+                    <img src="C300.jpg" alt="Mercedes AMG C300 Cabriolet" class="car-img">
+                    <div class="car-info">
+                        <h3>Mercedes AMG C300 Cabriolet</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Convertible</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Black</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$700 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 8 -->
+                <div class="car-card">
+                    <img src="CYBERTRUCK.jpg" alt="Tesla Cybertruck" class="car-img">
+                    <div class="car-info">
+                        <h3>Tesla Cybertruck 2025</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Electric</span>
+                            <span><i class="fas fa-bolt"></i> 500mi Range</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Gray</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$800 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 9 -->
+                <div class="car-card">
+                    <img src="M4G82.jpg" alt="BMW M4 2025" class="car-img">
+                    <div class="car-info">
+                        <h3>BMW M4 2025</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Sports</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Green</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$900 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 10 -->
+                <div class="car-card">
+                    <img src="CADILAC.jpg" alt="Cadillac Escalade" class="car-img">
+                    <div class="car-info">
+                        <h3>Cadillac Escalade</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Black</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$750 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 11 -->
+                <div class="car-card">
+                    <img src="DEFENDER.jpg" alt="Land Rover Defender" class="car-img">
+                    <div class="car-info">
+                        <h3>Land Rover Defender</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> White</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$850 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 12 -->
+                <div class="car-card">
+                    <img src="RANGEROVER.jpg" alt="Range Rover Sport" class="car-img">
+                    <div class="car-info">
+                        <h3>Range Rover Sport</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> White</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$950 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 13 -->
+                <div class="car-card">
+                    <img src="BOXTER718.jpg" alt="Porsche Boxster" class="car-img">
+                    <div class="car-info">
+                        <h3>Porsche Boxster</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Convertible</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Gray</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$800 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 14 -->
+                <div class="car-card">
+                    <img src="URUS.jpg" alt="Lamborghini Urus" class="car-img">
+                    <div class="car-info">
+                        <h3>Lamborghini Urus</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> SUV</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Yellow</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$1,300 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 15 -->
+                <div class="car-card">
+                    <img src="CORVETTE.jpg" alt="Chevrolet Corvette" class="car-img">
+                    <div class="car-info">
+                        <h3>Chevrolet Corvette</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-car"></i> Sports</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Red</span>
+                        </div>
+                        <div class="car-price">
+                            <h4>$750 <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Filter logic would go here
+                // For now, it just logs the filter type
+                console.log(`Filtering by: ${btn.textContent}`);
+            });
+        });
+    </script>
+</body>
+</html>
