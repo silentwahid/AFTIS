@@ -3,31 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Cars - AFTIS Premium Rentals</title>
+    <title>AFTIS - Premium Car Rentals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
     <style>
-        /* AFTIS Brand Colors */
-        :root {
-            --primary: #1a2a3a;       /* Dark blue-gray */
-            --secondary: #e63946;     /* Vibrant red */
-            --light: #f1faee;        /* Light greenish-white */
-            --dark: #1d3557;         /* Dark blue */
-            --highlight: #a8dadc;    /* Light teal */
-            --gray: #457b9d;         /* Medium blue */
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
 
         .container {
             width: 100%;
@@ -35,59 +16,6 @@
             margin: 0 auto;
             padding: 0 15px;
         }
-
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-
         section {
             padding: 100px 0 50px;
         }
@@ -247,17 +175,19 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+   <!-- Header -->
+    <header id="mainHeader">
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="AFTIS Logo" class="logo-img">
-                <span>AFTIS</span> Car Rental
+            <a href="#" class="logo">
+                <img src="LOGO.png" alt="AFTIS Logo" class="logo-img">
             </a>
-            <nav>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navMenu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="available-cars.html">Available Cars</a></li>
+                    <li><a href="cars.html">Available Cars</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -551,7 +481,56 @@
             </div>
         </div>
     </section>
+    
 
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo"><img style="width: 60%;" src="LOGO.png" alt=""></a>
+                    <p>Your trusted partner for premium car rentals at affordable prices. We're committed to making your journey comfortable and memorable.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@aftiscarrental"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/aftis_car_rental/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#cars">Available Cars</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#why-us">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Airport Rentals</a></li>
+                        <li><a href="#">Long Term Rentals</a></li>
+                        <li><a href="#">Business Rentals</a></li>
+                        <li><a href="#">One Way Rentals</a></li>
+                        <li><a href="#">Luxury Rentals</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 AFTIS Car Rental. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="main.js"></script>
+    
     <script>
         // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
