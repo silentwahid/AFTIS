@@ -7,172 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
-    <style>
+  
 
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        section {
-            padding: 100px 0 50px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--dark);
-            text-align: center;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 10px auto;
-        }
-
-        .cars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .car-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(168, 218, 220, 0.3);
-        }
-
-        .car-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .car-img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .car-card:hover .car-img {
-            transform: scale(1.05);
-        }
-
-        .car-info {
-            padding: 20px;
-        }
-
-        .car-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .car-specs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-            color: var(--gray);
-        }
-
-        .car-specs span {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-
-        .car-specs i {
-            margin-right: 5px;
-            color: var(--secondary);
-        }
-
-        .car-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .car-price h4 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-        }
-
-        .car-price h4 span {
-            font-size: 1rem;
-            color: var(--gray);
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #c1121f;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
-        }
-
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            padding: 8px 15px;
-            background: var(--light);
-            border: 1px solid var(--gray);
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--dark);
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .filter-btn.active {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .cars-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            nav ul {
-                gap: 10px;
-            }
-        }
-    </style>
 </head>
 <body>
    <!-- Header -->
@@ -194,6 +30,7 @@
             </nav>
         </div>
     </header>
+    <br><br><br>
 
     <!-- Available Cars Section -->
     <section class="available-cars">
@@ -482,9 +319,7 @@
         </div>
     </section>
     
-
-
-        <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -502,10 +337,9 @@
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#cars">Available Cars</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cars.html">Available Cars</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#why-us">Why Choose Us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -520,7 +354,6 @@
                         <li><a href="#">Luxury Rentals</a></li>
                     </ul>
                 </div>
-                
             </div>
             
             <div class="copyright">
@@ -546,6 +379,14 @@
                 // For now, it just logs the filter type
                 console.log(`Filtering by: ${btn.textContent}`);
             });
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
     </script>
 </body>
