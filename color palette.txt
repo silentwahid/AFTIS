@@ -1,0 +1,7 @@
+| Element              | Suggested Color           | Purpose                                                 |
+| -------------------- | ------------------------- | ------------------------------------------------------- |
+| **Background**       | Black (`#000000`)         | Dramatic base for contrast with gold accents            |
+| **Primary Text**     | Light Gray (`#999999`)    | High readability on dark background                     |
+| **Headings / Icons** | Metallic Gold (`#E6C462`) | Draw attention and convey luxury                        |
+| **Buttons / Links**  | Gold accent (`#AC9C2C`)   | Call-to-action elements with striking contrast          |
+| **Borders / Panels** | Medium Gray (`#7F7E7B`)   | Subtle definition without overwhelming black background |
