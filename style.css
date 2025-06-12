@@ -2,17 +2,16 @@
 :root {
     --primary: #000000;         /* Black background */
     --primary-light: #1a1a1a;   /* Slightly lighter black */
-    --secondary: #E6C462;       /* Metallic gold for headings/icons */
-    --secondary-dark: #AC9C2C;  /* Darker gold for buttons/hover */
+    --secondary: #FF6B00;       /* Vibrant orange (replacing metallic gold) */
+    --secondary-dark: #CC5500;  /* Darker orange for buttons/hover */
     --accent: #7F7E7B;         /* Medium gray for borders/panels */
     --light: #0d0d0d;          /* Dark background */
     --light-gray: #333333;      /* Dark gray for subtle elements */
-    --dark: #E6C462;           /* Gold for text */
+    --dark: #FF6B00;           /* Orange for text (replacing gold) */
     --gray: #999999;           /* Light gray for secondary text */
     --success: #10b981;        /* Green for positive actions */
-    --highlight: #AC9C2C;      /* Gold accent for highlights */
+    --highlight: #CC5500;      /* Darker orange accent for highlights */
 }
-
 /* Base Styles */
 * {
     margin: 0;
