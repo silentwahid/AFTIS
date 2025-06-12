@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AFTIS | Premium Car Rentals in Dubai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* About Content */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 20px auto 0;
+        }
+
+        /* Our Story */
+        .our-story {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .story-content h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--accent);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Our Values */
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .value-card {
+            background: var(--primary-light);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 30px rgba(230, 196, 98, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* Our Team */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .team-member {
+            background: var(--primary-light);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--accent);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(230, 196, 98, 0.1);
+        }
+
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 25px 20px;
+        }
+
+        .member-info h3 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .member-info p {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* Stats */
+        .stats-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 196, 98, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(230, 196, 98, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--secondary);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--secondary);
+            background: rgba(230, 196, 98, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(230, 196, 98, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--accent);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .team-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .our-story {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .values-container,
+            .team-container,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="LOGO.png" alt="AFTIS Logo" class="logo-img">
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cars.html">Available Cars</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Discover the legacy behind AFTIS - Dubai's premier destination for luxury car rentals and unparalleled service.</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Are</h2>
+                <p>AFTIS was founded with a vision to redefine luxury car rentals in Dubai, combining world-class vehicles with exceptional service.</p>
+            </div>
+
+            <!-- Our Story -->
+            <div class="our-story">
+                <div class="story-content">
+                    <h3>From Humble Beginnings to Market Leaders</h3>
+                    <p>Founded in 2015, AFTIS began as a small fleet of premium vehicles serving Dubai's elite business community. Our commitment to excellence and attention to detail quickly set us apart in the competitive luxury rental market.</p>
+                    <p>Today, we boast one of the most exclusive collections of high-performance and luxury vehicles in the UAE, serving discerning clients from around the world.</p>
+                    <p>What began as a passion project between car enthusiasts has grown into Dubai's most trusted name for premium automotive experiences.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AFTIS Early Days">
+                </div>
+            </div>
+
+            <!-- Our Values -->
+            <div class="section-title">
+                <h2>Our Values</h2>
+                <p>These principles guide every decision we make and every interaction we have with our clients.</p>
+            </div>
+
+            <div class="values-container">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We pursue perfection in every detail, from vehicle maintenance to customer service.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Honest, transparent dealings form the foundation of all our relationships.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>Our love for exceptional automobiles drives everything we do.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Commitment</h3>
+                    <p>We stand by our promises and deliver beyond expectations.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Constantly evolving to bring you the latest in automotive luxury.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Building lasting relationships with clients who share our passion.</p>
+                </div>
+            </div>
+
+            
+            
+    
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-title">Premium Vehicles</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-title">Satisfied Clients</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-title">Support</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-title">Client Retention</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience the AFTIS Difference</h2>
+            <p>Join thousands of satisfied clients who have discovered the ultimate in luxury car rentals.</p>
+            <a href="contact.html" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="LOGO.png" alt="AFTIS Logo">
+                    </a>
+                    <p>Dubai's premier destination for luxury and premium car rentals. Experience unparalleled service and exceptional vehicles.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/aftis_car_rental/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@aftiscarrental"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cars.html">Available Cars</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Luxury Rentals</a></li>
+                        <li><a href="#">Airport Pickup</a></li>
+                        <li><a href="#">Long Term Leasing</a></li>
+                        <li><a href="#">Corporate Solutions</a></li>
+                        <li><a href="#">Chauffeur Services</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 AFTIS Premium Car Rentals. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

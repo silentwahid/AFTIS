@@ -7,7 +7,143 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
-   
+   <style>
+    
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--secondary);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--secondary);
+            background: rgba(230, 196, 98, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(230, 196, 98, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--accent);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .team-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .our-story {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .values-container,
+            .team-container,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+  </style>
 </head>
 <body>
     <!-- Header -->
@@ -23,8 +159,8 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="cars.html">Available Cars</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -111,14 +247,12 @@
         <div class="container">
             <h2>Available Cars</h2>
             
-            <div class="filter-options">
+             <div class="filter-options">
                 <button class="filter-btn active">All</button>
-                <button class="filter-btn">Economy</button>
-                <button class="filter-btn">Compact</button>
-                <button class="filter-btn">SUV</button>
                 <button class="filter-btn">Luxury</button>
-                <button class="filter-btn">Automatic</button>
-                <button class="filter-btn">Manual</button>
+                <button class="filter-btn">SUV</button>
+                <button class="filter-btn">Sports</button>
+                <button class="filter-btn">Electric</button>
             </div>
             
             <div class="cars-grid">
@@ -128,7 +262,7 @@
                     <div class="car-info">
                         <h3>Porsche 718 Boxster</h3>
                         <div class="car-specs">
-                            <span><i class="fas fa-car"></i> Convertible</span>
+                            <span><i class="fas fa-car"></i> Luxury</span>
                             <span><i class="fas fa-gas-pump"></i> Petrol</span>
                             <span><i class="fas fa-cogs"></i> Automatic</span>
                         </div>
@@ -158,17 +292,18 @@
                 
                 <!-- Car 3 -->
                 <div class="car-card">
-                    <img src="URUS.jpg" alt="Lamborghini Urus" class="car-img">
+                    <img src="CYBERTRUCK.jpg" alt="Tesla Cybertruck" class="car-img">
                     <div class="car-info">
-                        <h3>Lamborghini Urus</h3>
+                        <h3>Tesla Cybertruck 2025</h3>
                         <div class="car-specs">
-                            <span><i class="fas fa-car"></i> SUV</span>
-                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-car"></i> Electric</span>
+                            <span><i class="fas fa-bolt"></i> 500mi Range</span>
                             <span><i class="fas fa-cogs"></i> Automatic</span>
+                            <span><i class="fas fa-palette"></i> Gray</span>
                         </div>
                         <div class="car-price">
-                            <h4>$350 <span>/day</span></h4>
-                            <a href="#" class="btn">Rent Now</a>
+                            <h4>2999 AED <span>/day</span></h4>
+                            <a href="book.html" class="btn">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +315,7 @@
     <div class="car-info">
         <h3>Lamborghini Huracán EVO</h3>
         <div class="car-specs">
-            <span><i class="fas fa-car"></i> Supercar</span>
+            <span><i class="fas fa-car"></i> Sports</span>
             <span><i class="fas fa-gas-pump"></i> Petrol</span>
             <span><i class="fas fa-cogs"></i> Automatic</span>
         </div>
@@ -214,7 +349,7 @@
                     <div class="car-info">
                         <h3>BMW M4 G82</h3>
                         <div class="car-specs">
-                            <span><i class="fas fa-car"></i> Coupe</span>
+                            <span><i class="fas fa-car"></i> Sports</span>
                             <span><i class="fas fa-gas-pump"></i> Petrol</span>
                             <span><i class="fas fa-cogs"></i> Automatic</span>
                         </div>
@@ -381,7 +516,8 @@
                         </div>
                         <div class="contact-text">
                             <h3>Phone Number</h3>
-                            <p>+97145772794</p>
+                            <p>+971551269976</p>
+                            <p>+971508500531</p>
                         </div>
                     </div>
                     
@@ -428,14 +564,14 @@
                     </div>
                 </div>
                 
+                
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#cars">Available Cars</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#why-us">Why Choose Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cars.html">Available Cars</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -459,6 +595,36 @@
     </footer>
 
    <script src="main.js"></script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const carCards = document.querySelectorAll('.car-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.textContent.trim();
+            
+            carCards.forEach(card => {
+                const carTypeElement = card.querySelector('.car-specs span:first-child');
+                const carType = carTypeElement.textContent.replace(/^\s+|\s+$/g, ''); // Trim whitespace
+                
+                if (filterValue === 'All' || carType === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script> 
 
 </body>
 </html>
