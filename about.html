@@ -267,145 +267,10 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(230, 196, 98, 0.4);
         }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            padding: 60px 0 30px;
-            border-top: 1px solid var(--secondary);
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            margin-bottom: 20px;
-        }
-
-        .footer-about p {
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: var(--secondary);
-            background: rgba(230, 196, 98, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: rgba(230, 196, 98, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h3 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-links h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--secondary);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid var(--accent);
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .team-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .our-story {
-                grid-template-columns: 1fr;
-            }
-            
-            .values-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .values-container,
-            .team-container,
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
+     <!-- Header -->
     <header id="mainHeader">
         <div class="container header-container">
             <a href="#" class="logo">
@@ -552,21 +417,23 @@
         </div>
     </section>
 
-    <!-- Footer -->
+   <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
                     <a href="index.html" class="footer-logo">
-                        <img src="LOGO.png" alt="AFTIS Logo">
+                        <img style="width: 50%;" src="LOGO.png" alt="AFTIS Logo">
                     </a>
-                    <p>Dubai's premier destination for luxury and premium car rentals. Experience unparalleled service and exceptional vehicles.</p>
+                    <p>Your premier destination for luxury and premium car rentals in Dubai. Experience unparalleled service and exceptional vehicles.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/aftis_car_rental/"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.tiktok.com/@aftiscarrental"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                
                 
                 <div class="footer-links">
                     <h3>Quick Links</h3>
@@ -581,10 +448,10 @@
                 <div class="footer-links">
                     <h3>Our Services</h3>
                     <ul>
-                        <li><a href="#">Luxury Rentals</a></li>
+                        <li><a href="#">Luxury Car Rentals</a></li>
                         <li><a href="#">Airport Pickup</a></li>
-                        <li><a href="#">Long Term Leasing</a></li>
-                        <li><a href="#">Corporate Solutions</a></li>
+                        <li><a href="#">Long Term Rentals</a></li>
+                        <li><a href="#">Corporate Rentals</a></li>
                         <li><a href="#">Chauffeur Services</a></li>
                     </ul>
                 </div>
@@ -595,5 +462,6 @@
             </div>
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>
