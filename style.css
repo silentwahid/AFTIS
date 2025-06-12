@@ -1539,6 +1539,7 @@ strong {
 
     @media (max-width: 768px) {
         .booking-hero {
+            margin-top: 20%;
             height: 50vh;
         }
         
